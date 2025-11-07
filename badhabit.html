@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bad Habits Quiz 🌿</title>
+    <link rel="stylesheet" href="bad-habits.css">
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background: linear-gradient(135deg, #e6fff4, #ccf2ff);
+            /* refreshing green-blue gradient */
+        }
+
+        .title {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .title h1 {
+            font-size: 2.5rem;
+            color: #1a8c6d;
+            /* strong green for renewal */
+        }
+
+        .title p {
+            margin-top: 10px;
+            color: #3a4b47;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background: #1a8c6d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #15735a;
+        }
+
+        #resultBox {
+            margin-top: 30px;
+            background: #f0fffa;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .quiz form {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 85%;
+            max-width: 650px;
+            margin: 40px auto;
+            transition: 0.3s ease;
+        }
+
+        .quiz form:hover {
+            transform: translateY(-3px);
+        }
+
+        label {
+            display: block;
+            margin: 6px 0;
+            padding: 8px 12px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #b3f0d1;
+            transition: all 0.3s ease;
+        }
+
+        label:hover {
+            background: #e0fff2;
+            color: #1a8c6d;
+        }
+
+        label.selected {
+            background: #b3f0d1;
+            border-color: #1a8c6d;
+            color: #0f5c49;
+            font-weight: 600;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            background: #f2fffa;
+            border-left: 5px solid #1a8c6d;
+        }
+
+        .question p {
+            font-weight: 600;
+            color: #0f5c49;
+            margin-bottom: 10px;
+        }
+
+        #viewResultBtn {
+            display: block;
+            margin: 25px auto 0 auto;
+            padding: 12px 30px;
+            background: #1a8c6d;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: 0.3s, transform 0.2s;
+        }
+
+        #viewResultBtn:hover {
+            background: #15735a;
+            transform: scale(1.05);
+        }
+
+        #resultBox {
+            margin: 30px auto;
+            border-radius: 20px;
+            background: #f6fff9;
+            width: 85%;
+            padding: 25px;
+            max-width: 650px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            justify-content: center;
+        }
+
+        #resultBox h2 {
+            color: #1a8c6d;
+            margin-bottom: 15px;
+        }
+
+        #resultBox p {
+            color: #3a4b47;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            color: white;
+            background: #1a8c6d;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #15735a;
+        }
+
+        @media (max-width: 600px) {
+
+            .quiz form,
+            #resultBox {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <div class="title">
+        <h1>🚫 Breaking Bad Habits 🌱</h1>
+        <p>Find out how your daily habits affect your wellbeing and discover how to build better ones!</p>
+    </div>
+
+    <div class="quiz">
+        <form id="quizForm">
+            <div class="question">
+                <p>🍟 How often do you eat junk food?</p>
+                <label><input type="radio" name="q1" value="always"> Always 😋</label>
+                <label><input type="radio" name="q1" value="sometimes"> Sometimes 🍔</label>
+                <label><input type="radio" name="q1" value="rarely"> Rarely 🥗</label>
+            </div>
+
+            <div class="question">
+                <p>🕗 How many hours do you sleep each night?</p>
+                <label><input type="radio" name="q2" value="less"> Less than 5 hours 😴</label>
+                <label><input type="radio" name="q2" value="normal"> 6–8 hours 🌙</label>
+                <label><input type="radio" name="q2" value="more"> More than 8 hours 💤</label>
+            </div>
+
+            <div class="question">
+                <p>📱 How much time do you spend on your phone each day?</p>
+                <label><input type="radio" name="q3" value="lot"> More than 5 hours 😬</label>
+                <label><input type="radio" name="q3" value="some"> 2–4 hours 📲</label>
+                <label><input type="radio" name="q3" value="little"> Less than 2 hours 👍</label>
+            </div>
+
+            <div class="question">
+                <p>🏃 Do you exercise regularly?</p>
+                <label><input type="radio" name="q4" value="never"> Never 😓</label>
+                <label><input type="radio" name="q4" value="sometimes"> Sometimes 🚶‍♂️</label>
+                <label><input type="radio" name="q4" value="regularly"> Regularly 🏋️‍♀️</label>
+            </div>
+
+            <button type="button" id="viewResultBtn">View Result 🌟</button>
+        </form>
+    </div>
+
+    <div id="resultBox" class="hidden">
+        <h2>🌿 Your Result</h2>
+        <p id="resultText"></p>
+        <a href="index.html" class="back-btn">⬅️ Back to Home</a>
+    </div>
+
+    <script src="bad-habits.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const viewResultBtn = document.getElementById("viewResultBtn");
+            const resultBox = document.getElementById("resultBox");
+            const resultText = document.getElementById("resultText");
+            const quizForm = document.getElementById("quizForm");
+
+            // Highlight selected answers
+            document.querySelectorAll("label").forEach(label => {
+                label.addEventListener("click", () => {
+                    const name = label.querySelector("input").name;
+                    document.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+                        input.parentElement.classList.remove("selected");
+                    });
+                    label.classList.add("selected");
+                });
+            });
+
+            // When "View Result" is clicked
+            viewResultBtn.addEventListener("click", () => {
+                const answers = new FormData(quizForm);
+                let score = 0;
+
+                // Simple scoring system
+                if (answers.get("q1") === "always") score += 3;
+                else if (answers.get("q1") === "sometimes") score += 2;
+                else if (answers.get("q1") === "rarely") score += 1;
+
+                if (answers.get("q2") === "less") score += 3;
+                else if (answers.get("q2") === "normal") score += 1;
+                else if (answers.get("q2") === "more") score += 2;
+
+                if (answers.get("q3") === "lot") score += 3;
+                else if (answers.get("q3") === "some") score += 2;
+                else if (answers.get("q3") === "little") score += 1;
+
+                if (answers.get("q4") === "never") score += 3;
+                else if (answers.get("q4") === "sometimes") score += 2;
+                else if (answers.get("q4") === "regularly") score += 1;
+
+                let resultMessage = "";
+
+                // Result based on total score
+                if (score <= 5) {
+                    resultMessage = "🌟 Amazing! You have healthy habits and great self-control. Keep it up! 💪";
+                } else if (score <= 8) {
+                    resultMessage = "😊 You're doing alright, but a few tweaks can make you feel even better. Try eating healthy and sleeping on time! 🌙";
+                } else {
+                    resultMessage = "⚠️ It looks like some habits may be holding you back. Don’t worry — small changes every day can make a big difference! 🌿";
+                }
+
+                // Show result box
+                resultText.textContent = resultMessage;
+                resultBox.classList.remove("hidden");
+                window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

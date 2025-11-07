@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background: linear-gradient(135deg, #fff4e6, #ffe8cc);
+            ;
+        }
+
+        .title {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .title h1 {
+            font-size: 2.5rem;
+            color: #d46a1f;
+        }
+
+        .title p {
+            margin-top: 10px;
+            color: #5a4632;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background: #e57c23;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-0.3s;
+        }
+
+        button:hover {
+            background: #cc6617;
+        }
+
+        #resultBox {
+            margin-top: 30px;
+            background: #fff9f0;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            ;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .quiz form {
+            background: #ffffff;
+            ;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 85%;
+            max-width: 650px;
+            margin: 40px auto;
+            transition: 0.3s ease;
+        }
+
+        .quiz form:hover {
+            transform: translateY(-3px);
+        }
+
+        label {
+            display: block;
+            margin: 6px 0;
+            padding: 8px 12px;
+            background: #fff9f0;
+            border-radius: 8px;
+            border: 1px solid #ffd6a5;
+            transition: all 0.3s ease;
+        }
+
+        label:hover {
+            background: #ffe0b2;
+            color: #d46a1f;
+        }
+
+        label.selected {
+            background: #ffd6a5;
+            border-color: #e57c23;
+            color: #b24b00;
+            font-weight: 600;
+        }
+
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            background: #fff7eb;
+            border-left: 5px solid #e57c23;
+        }
+
+        .question p {
+            font-weight: 600;
+            color: #b24b00;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin: 6px 0;
+            color: #444;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        label:hover {
+            background: #ffe0b2;
+            color: #444;
+        }
+
+        #viewResultBtn {
+            display: block;
+            margin: 25px auto 0 auto;
+            padding: 12px 30px;
+            background: #e57c23;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: 0.3s, transform 0.2s;
+        }
+
+        #viewResultBtn:hover {
+            background: #cc6617;
+            transform: scale(1.05);
+        }
+
+        #resultBox {
+            margin-top: 30px auto;
+            border-radius: 20px;
+            background: #fffaf2;
+            width: 85%;
+            padding: 25px;
+            max-width: 650;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            justify-content: center;
+        }
+
+        #resultBox h2 {
+            color: #d46a1f;
+            margin-bottom: 15px;
+        }
+
+        #resultBox p {
+            color: #d46a1f;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            color: white;
+            background: #e57c23;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #cc6617;
+        }
+
+        @media (max-width: 600px) {
+
+            .quiz form,
+            #resultBox {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <div class="title">
+        <h1>😨 Fear of Failure</h1>
+        <p>Let’s explore your feelings and find courage together 🌱</p>
+    </div>
+
+    <section class="quiz">
+        <form id="overthinkingQuiz">
+            <div class="question">
+                <p>1️1️⃣ How do you feel before trying something new?</p>
+                <label>
+                    <input type="radio" name="q1" value="2">Often
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q1" value="1">Sometimes
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q1" value="0">Rarely
+                </label><br>
+
+            </div>
+
+            <div class="question">
+                <p>2️2️⃣ What do you do when things don’t go as planned</p>
+                <label>
+                    <input type="radio" name="q2" value="2"> Often
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q2" value="1">A little
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q2" value="0">No
+                </label><br>
+
+            </div>
+
+            <div class="question">
+                <p>3️⃣ Do you compare yourself to others’ success?</p>
+                <label>
+                    <input type="radio" name="q3" value="2">Yes, very often
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q3" value="1">Sometimes
+                </label><br>
+
+                <label>
+                    <input type="radio" name="q3" value="0">Not really
+                </label><br>
+            </div>
+
+            <button type="button" id="viewResultBtn">View Result</button>
+
+        </form>
+
+        <div id="resultBox" class="hidden">
+            <h2>Your Result 🌸</h2>
+            <p id="resultTest"></p>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </section>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const viewBtn = document.getElementById("viewResultBtn");
+            const resultBox = document.getElementById("resultBox");
+            const resultText = document.getElementById("resultTest");
+
+            const labels = document.querySelectorAll("label");
+            labels.forEach(label => {
+                label.addEventListener("click", () => {
+                    const input = label.querySelector("input");
+                    if (!input) return;
+
+                    const groupName = input.name;
+                    const allInGroup = document.querySelectorAll(`input[name="${groupName}"]`);
+
+                    allInGroup.forEach(i => i.parentElement.classList.remove("selected"));
+                    label.classList.add("selected");
+                });
+            });
+
+            if (viewBtn) {
+                viewBtn.addEventListener("click", () => {
+                    const q1 = parseInt(document.querySelector('input[name="q1"]:checked')?.value || 0);
+                    const q2 = parseInt(document.querySelector('input[name="q2"]:checked')?.value || 0);
+                    const q3 = parseInt(document.querySelector('input[name="q3"]:checked')?.value || 0);
+
+                    const total = q1 + q2 + q3;
+                    let message = "";
+
+                    if (total >= 5) {
+                        message = "🌟 You’re confident and ready to take on challenges! Keep that brave energy.";
+
+                        message = "💪 You sometimes worry about failing, but remember — every mistake helps you grow.";
+                    } else {
+                        message = "❤️ It’s okay to be afraid of failing. Failure isn’t the end — it’s the first step toward learning something amazing.";
+                    }
+
+                    resultText.textContent = message
+                    resultBox.classList.remove("hidden");
+                    viewBtn.style.display = "none";
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
